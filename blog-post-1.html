@@ -3,21 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>From Idea to Impact: Journey of a Student Startup</title>
+    <title>10 Essential Tips for Young Entrepreneurs - E-Cell Blog</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="templatemo-electric-xtra.css" rel="stylesheet">
     <style>
-        /* Styles for Single Blog Post Page */
-        .blog-post {
-            padding: 150px 20px 100px;
+        /* Blog Post Page Enhancements */
+        .blog-post-page {
+            padding: 120px 20px 100px;
             max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 5;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 94, 0, 0.2);
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            padding: 100px 20px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            z-index: 5;
+            position: relative;
+        }
+
+        .breadcrumb nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb a {
+            color: #00B2FF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #FF5E00;
+        }
+
+        .breadcrumb span {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .post-header {
+            text-align: center;
+            margin-bottom: 40px;
         }
 
         .post-header h1 {
@@ -26,8 +64,10 @@
             margin-bottom: 15px;
             background: linear-gradient(45deg, #FF5E00, #00B2FF);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1.3;
+            text-shadow: none;
         }
 
         .post-meta {
@@ -35,6 +75,23 @@
             color: #00B2FF;
             opacity: 0.8;
             margin-bottom: 30px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .post-category {
+            background: linear-gradient(45deg, #FF5E00, #FF8533);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(255, 94, 0, 0.3);
         }
 
         .post-image {
@@ -42,65 +99,309 @@
             height: auto;
             max-height: 450px;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 15px;
             margin-bottom: 40px;
+            box-shadow: 0 20px 50px rgba(255, 94, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .post-image:hover {
+            transform: scale(1.02);
         }
         
         .post-content {
             font-size: 1.1rem;
-            line-height: 1.9;
-            opacity: 0.9;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+
+        .post-content h2 {
+            color: #00B2FF;
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8rem;
+            margin: 45px 0 25px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .post-content h2:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 4px;
+            height: 35px;
+            background: linear-gradient(45deg, #FF5E00, #00B2FF);
+            transform: translateY(-50%);
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(255, 94, 0, 0.5);
+        }
+
+        .post-content h3 {
+            color: #FF5E00;
+            font-family: 'Orbitron', monospace;
+            font-size: 1.4rem;
+            margin: 35px 0 20px 0;
+            text-shadow: 0 0 10px rgba(255, 94, 0, 0.3);
         }
 
         .post-content p {
             margin-bottom: 25px;
+            text-align: justify;
         }
 
-        .post-content h2 {
-            font-family: 'Orbitron', monospace;
-            font-size: 2rem;
-            margin-top: 40px;
-            margin-bottom: 20px;
+        .post-content ul, .post-content ol {
+            padding-left: 30px;
+            margin-bottom: 25px;
+        }
+
+        .post-content li {
+            margin-bottom: 12px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+        }
+
+        .post-content li strong {
             color: #FF5E00;
         }
-        
+
+        .highlight-box {
+            background: linear-gradient(45deg, rgba(255, 94, 0, 0.1), rgba(0, 178, 255, 0.1));
+            border: 1px solid rgba(255, 94, 0, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 35px 0;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(255, 94, 0, 0.1);
+        }
+
+        .highlight-box:before {
+            content: '💡';
+            position: absolute;
+            top: -15px;
+            left: 25px;
+            background: linear-gradient(45deg, #FF5E00, #00B2FF);
+            padding: 8px 12px;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(255, 94, 0, 0.3);
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-weight: 500;
+        }
+
         .back-to-blog {
-            display: inline-block;
-            margin-top: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #FF5E00, #FF8533);
+            color: white;
             text-decoration: none;
-            color: #FF5E00;
-            font-weight: 700;
-            border: 1px solid #FF5E00;
-            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
+            margin-top: 50px;
+            box-shadow: 0 8px 25px rgba(255, 94, 0, 0.3);
         }
 
         .back-to-blog:hover {
-            background: rgba(255, 94, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 94, 0, 0.4);
             color: white;
-            box-shadow: 0 0 20px rgba(255, 94, 0, 0.4);
+            background: linear-gradient(45deg, #FF8533, #FF5E00);
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 20px;
+            margin: 50px 0;
+            padding: 25px 0;
+            border-top: 1px solid rgba(255, 94, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 94, 0, 0.2);
+            justify-content: center;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #00B2FF;
+            text-decoration: none;
+            border-radius: 25px;
+            border: 1px solid rgba(0, 178, 255, 0.3);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .share-btn:hover {
+            background: rgba(0, 178, 255, 0.2);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 178, 255, 0.3);
+        }
+
+        /* Reading Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #FF5E00, #00B2FF);
+            z-index: 9999;
+            transition: width 0.25s ease;
+        }
+
+        /* Floating Table of Contents */
+        .toc {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(10, 10, 10, 0.9);
+            border: 1px solid rgba(255, 94, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 250px;
+            z-index: 100;
+            backdrop-filter: blur(15px);
+        }
+
+        .toc h4 {
+            color: #FF5E00;
+            font-family: 'Orbitron', monospace;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc li {
+            margin-bottom: 8px;
+        }
+
+        .toc a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .toc a:hover {
+            color: #00B2FF;
+            background: rgba(0, 178, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .toc {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-post-page {
+                padding: 100px 15px 80px;
+                margin: 0 15px;
+                border-radius: 10px;
+            }
+            
+            .breadcrumb {
+                padding: 90px 15px 15px;
+            }
+            
+            .post-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .post-content {
+                font-size: 1rem;
+            }
+            
+            .post-content h2 {
+                font-size: 1.6rem;
+                padding-left: 20px;
+            }
+            
+            .post-content h2:before {
+                width: 3px;
+                height: 25px;
+            }
+            
+            .share-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .post-meta {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .post-category {
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .post-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .post-content h2 {
+                font-size: 1.4rem;
+            }
+            
+            .share-buttons {
+                gap: 10px;
+            }
+            
+            .share-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Background Elements -->
     <div class="grid-bg"></div>
-    <div class="gradient-overlay"></div>
-    <div class="scanlines"></div>
-    <div class="shapes-container">
-        <div class="shape shape-circle"></div>
-        <div class="shape shape-triangle"></div>
-        <div class="shape shape-square"></div>
-    </div>
     <div id="particles"></div>
 
+    <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo-link">
-                <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FF5E00;stop-opacity:1" /><stop offset="100%" style="stop-color:#00B2FF;stop-opacity:1" /></linearGradient></defs><polygon points="20,2 38,14 38,26 20,38 2,26 2,14" fill="none" stroke="url(#logoGradient)" stroke-width="2"/><polygon points="20,8 32,16 32,24 20,32 8,24 8,16" fill="url(#logoGradient)" opacity="0.3"/><circle cx="20" cy="20" r="3" fill="url(#logoGradient)"/></svg>
+            <a href="index_blog.html" class="logo-link">
+                <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FF5E00;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00B2FF;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <polygon points="20,2 38,14 38,26 20,38 2,26 2,14" fill="none" stroke="url(#logoGradient)" stroke-width="2" />
+                    <polygon points="20,8 32,16 32,24 20,32 8,24 8,16" fill="url(#logoGradient)" opacity="0.3" />
+                    <circle cx="20" cy="20" r="3" fill="url(#logoGradient)" />
+                </svg>
                 <span class="logo-text">ECELL MGMCET</span>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index_blog.html#home" class="nav-link">Home</a></li>
+                <li><a href="index_blog.html" class="nav-link">Home</a></li>
                 <li><a href="index_blog.html#features" class="nav-link">About Us</a></li>
                 <li><a href="index_blog.html#about" class="nav-link">Team Revel</a></li>
                 <li><a href="index_blog.html#faculty" class="nav-link">Faculty Advisor</a></li>
@@ -108,39 +409,231 @@
                 <li><a href="index_blog.html#blog" class="nav-link active">Blog</a></li>
                 <li><a href="index_blog.html#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
-    <section class="blog-post">
+    <!-- Reading Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb">
+        <nav>
+            <a href="index_blog.html">Home</a>
+            <span>/</span>
+            <a href="index_blog.html#blog">Blog</a>
+            <span>/</span>
+            <span>10 Essential Tips for Young Entrepreneurs</span>
+        </nav>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc" id="tableOfContents">
+        <h4>Contents</h4>
+        <ul>
+            <li><a href="#section1">Start with a Real Problem</a></li>
+            <li><a href="#section2">Validate Your Idea</a></li>
+            <li><a href="#section3">Build a Strong Network</a></li>
+            <li><a href="#section4">Learn Financial Management</a></li>
+            <li><a href="#section5">Embrace Technology</a></li>
+            <li><a href="#section6">Focus on Customer Experience</a></li>
+            <li><a href="#section7">Be Prepared to Pivot</a></li>
+            <li><a href="#section8">Manage Your Time</a></li>
+            <li><a href="#section9">Seek Mentorship</a></li>
+            <li><a href="#section10">Stay Persistent</a></li>
+        </ul>
+    </div>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post-page">
         <div class="post-header">
-            <h1>From Idea to Impact: The Journey of a Student Startup</h1>
-            <p class="post-meta">Sep 20, 2025</p>
+            <div class="post-category">Entrepreneurship</div>
+            <h1>10 Essential Tips for Young Entrepreneurs</h1>
+            <div class="post-meta">
+                <span>By Team ECELL</span>
+                <span>•</span>
+                <span>March 15, 2025</span>
+                <span>•</span>
+                <span>10 min read</span>
+            </div>
         </div>
 
-        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop" alt="Startup team working" class="post-image">
+        <img src="https://picsum.photos/900/500?random=1" alt="10 Essential Tips for Young Entrepreneurs" class="post-image">
         
         <div class="post-content">
             <p>
-                Every great venture begins with a spark—an idea that refuses to be ignored. For the founders of 'ConnectSphere', that spark ignited during a late-night study session at MGMCET. Frustrated by the fragmented communication channels on campus, they envisioned a unified platform that would bring students, clubs, and faculty together seamlessly. This is the story of how they turned that vision into a venture.
-            </p>
-            
-            <h2>The Genesis: Identifying the Problem</h2>
-            <p>
-                The team, comprised of three engineering students, noticed a common problem: important announcements were lost in a sea of emails, event promotions were scattered across social media, and collaborating on projects was chaotic. They realized the need for a central hub—a digital ecosystem for the campus. The initial concept for 'ConnectSphere' was born on a whiteboard, sketching out features that would solve their own daily frustrations.
+                Starting your entrepreneurial journey as a young person can be both exhilarating and overwhelming. While youth brings energy, creativity, and a fresh perspective to business, it also comes with unique challenges like limited experience, small networks, and resource constraints. However, with the right strategies and mindset, these challenges can become your greatest advantages.
             </p>
 
-            <h2>Building the Prototype</h2>
             <p>
-                With the support of mentors from the E-Cell, the team began developing their Minimum Viable Product (MVP). They spent countless hours coding, designing, and debating every feature. The E-Cell's workshops on lean startup methodology and agile development were instrumental, guiding them to focus on core functionalities and gather user feedback early. The first prototype was clunky but functional, and it was enough to start testing with a small group of students.
+                Whether you're a college student with a brilliant idea or a recent graduate ready to dive into the startup world, these ten essential tips will help you navigate the complex landscape of entrepreneurship and increase your chances of building a successful venture.
             </p>
-            
-            <h2>Securing the First 'Yes'</h2>
+
+            <h2 id="section1">1. Start with a Real Problem</h2>
+
             <p>
-                The turning point came during the annual MGMCET Innovators' Pitch competition. The 'ConnectSphere' team delivered a compelling pitch, demonstrating not just their product but also their deep understanding of the problem and a clear business model. They caught the eye of an angel investor in the audience, which led to weeks of negotiations and due diligence. Finally, they secured their first round of pre-seed funding—a moment that validated their hard work and opened up a new world of possibilities.
+                The most successful businesses solve genuine problems that people actually have. Don't fall into the trap of building a solution in search of a problem. Instead, spend time identifying pain points in your own life or in your community. Talk to potential customers, conduct surveys, and observe behavior patterns.
             </p>
-            
-            <a href="index_blog.html" class="back-to-blog">← Back to All Posts</a>
+
+            <p>
+                Remember: if you're not solving a real problem, you're probably not building a sustainable business. The best entrepreneurs are problem-solvers first and business people second.
+            </p>
+
+            <h2 id="section2">2. Validate Your Idea Early and Often</h2>
+
+            <p>
+                Before investing months or years into developing your product, validate your assumptions. Create a simple prototype, minimum viable product (MVP), or even just a detailed description of your solution. Then test it with your target audience.
+            </p>
+
+            <ul>
+                <li>Create landing pages to gauge interest</li>
+                <li>Conduct customer interviews</li>
+                <li>Run small-scale pilot programs</li>
+                <li>Use social media to test concepts</li>
+                <li>Analyze competitor responses</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p>
+                    <strong>Pro Tip:</strong> It's better to fail fast and cheap than to fail slow and expensive. Early validation can save you years of wasted effort and thousands of dollars in development costs.
+                </p>
+            </div>
+
+            <h2 id="section3">3. Build a Strong Network</h2>
+
+            <p>
+                Your network is your net worth, especially as a young entrepreneur. Start building relationships early with mentors, peers, potential customers, and industry experts. Attend networking events, join entrepreneurship clubs, participate in startup competitions, and engage actively on professional social platforms.
+            </p>
+
+            <h3>Key Networking Strategies:</h3>
+            <ul>
+                <li>Join local entrepreneur meetups and startup communities</li>
+                <li>Connect with alumni from your school who are in business</li>
+                <li>Seek out mentors who have experience in your industry</li>
+                <li>Participate in accelerator programs and incubators</li>
+                <li>Volunteer for startup events and conferences</li>
+            </ul>
+
+            <h2 id="section4">4. Learn Financial Management Early</h2>
+
+            <p>
+                Many young entrepreneurs fail not because their ideas were bad, but because they didn't understand basic financial management. Learn to read financial statements, understand cash flow, and create realistic budgets and projections.
+            </p>
+
+            <p>
+                Key financial skills to develop include budgeting, cash flow management, understanding profit margins, basic accounting principles, and investment evaluation. Consider taking online courses or working with a mentor who can teach you these essential skills.
+            </p>
+
+            <h2>5. Embrace Technology and Digital Marketing</h2>
+
+            <p>
+                As a young entrepreneur, you have a natural advantage when it comes to technology and digital marketing. Use this to your benefit by leveraging social media, digital advertising, content marketing, and online tools to build your brand and reach customers cost-effectively.
+            </p>
+
+            <p>
+                Modern entrepreneurs have access to powerful tools that were unimaginable just a decade ago. From no-code website builders to sophisticated analytics platforms, you can build and scale a business with minimal upfront investment.
+            </p>
+
+            <h2>6. Focus on Customer Experience</h2>
+
+            <p>
+                In today's competitive marketplace, customer experience is often the key differentiator. Focus obsessively on understanding your customers' needs, preferences, and pain points. Build systems to collect feedback, respond quickly to concerns, and continuously improve your offerings.
+            </p>
+
+            <div class="highlight-box">
+                <p>
+                    <strong>Remember:</strong> Acquiring new customers is 5-25 times more expensive than retaining existing ones. Exceptional customer service isn't just nice to have—it's a crucial business strategy.
+                </p>
+            </div>
+
+            <h2>7. Be Prepared to Pivot</h2>
+
+            <p>
+                Flexibility is crucial for young entrepreneurs. Many successful companies today look nothing like they did when they started. Be prepared to pivot your business model, target market, or even your entire product if the data suggests it's necessary.
+            </p>
+
+            <p>
+                Famous pivot examples include Twitter (started as a podcast platform), Instagram (began as a check-in app), and Slack (originally a gaming company). The ability to adapt based on market feedback is often what separates successful entrepreneurs from failed ones.
+            </p>
+
+            <h2>8. Manage Your Time and Energy</h2>
+
+            <p>
+                As a young entrepreneur, you might feel like you need to work 80-hour weeks to succeed. While dedication is important, burnout is real and counterproductive. Learn to manage your time effectively, delegate when possible, and maintain a healthy work-life balance.
+            </p>
+
+            <h3>Effective Time Management Tips:</h3>
+            <ul>
+                <li>Use productivity techniques like the Pomodoro Technique</li>
+                <li>Prioritize tasks using frameworks like the Eisenhower Matrix</li>
+                <li>Automate repetitive tasks wherever possible</li>
+                <li>Set boundaries and stick to them</li>
+                <li>Schedule time for rest and personal activities</li>
+            </ul>
+
+            <h2>9. Seek Mentorship and Guidance</h2>
+
+            <p>
+                Don't try to figure everything out on your own. Successful entrepreneurs understand the value of mentorship and actively seek guidance from those who have walked the path before them. A good mentor can help you avoid common pitfalls, make valuable introductions, and provide perspective during challenging times.
+            </p>
+
+            <p>
+                Look for mentors in your industry, successful entrepreneurs from your region, or business leaders whose career paths you admire. Remember that mentorship is a two-way relationship—be prepared to offer value in return, whether it's helping with technology, providing fresh perspectives, or simply being an enthusiastic learner.
+            </p>
+
+            <h2>10. Stay Persistent but Realistic</h2>
+
+            <p>
+                Entrepreneurship is a marathon, not a sprint. There will be setbacks, rejections, and moments when you want to give up. Persistence is crucial, but it must be balanced with realistic assessment of your progress and market conditions.
+            </p>
+
+            <p>
+                Learn to distinguish between temporary setbacks that require persistence and fundamental problems that require pivoting or even stopping. The goal isn't to never fail—it's to fail intelligently and learn from each experience.
+            </p>
+
+            <div class="highlight-box">
+                <p>
+                    <strong>Final Thought:</strong> Remember that every successful entrepreneur was once a beginner. Your age and inexperience aren't disadvantages—they're sources of fresh thinking, adaptability, and hunger for success. Embrace your journey, learn continuously, and don't be afraid to think big while starting small.
+                </p>
+            </div>
+
+            <h2>Conclusion</h2>
+
+            <p>
+                Starting a business as a young entrepreneur is an incredible opportunity to shape your future and potentially make a significant impact on the world. While the challenges are real, so are the advantages that come with youth: energy, adaptability, technological fluency, and a willingness to take risks.
+            </p>
+
+            <p>
+                Remember that entrepreneurship is not just about having a great idea—it's about execution, persistence, and continuous learning. Use these ten tips as your foundation, but don't stop there. Keep learning, keep networking, and most importantly, keep taking action toward your entrepreneurial goals.
+            </p>
+
+            <p>
+                Your journey as a young entrepreneur will be unique, filled with both triumphs and challenges. Embrace the process, celebrate small wins, learn from setbacks, and never lose sight of why you started. The world needs more young entrepreneurs willing to tackle important problems with fresh perspectives and innovative solutions.
+            </p>
+        
+        <div class="share-buttons">
+            <a href="#" class="share-btn">
+                <span>📤</span>
+                <span>Share</span>
+            </a>
+            <a href="#" class="share-btn">
+                <span>🔗</span>
+                <span>Copy Link</span>
+            </a>
+            <a href="#" class="share-btn">
+                <span>💬</span>
+                <span>Discuss</span>
+            </a>
+        </div>
+
+        <a href="index_blog.html#blog" class="back-to-blog">
+            <span>←</span>
+            <span>Back to Blog</span>
+        </a>
         </div>
     </section>
 
@@ -154,6 +647,36 @@
             <p class="copyright">© 2025 ELECTRIC XTRA. All rights reserved. Building tomorrow, today. | Design: <a href="https://templatemo.com" target="_blank" rel="nofollow noopener">TemplateMo</a></p>
         </div>
     </footer>
-<script src="templatemo-electric-scripts.js"></script>
+    <!-- Scripts -->
+    <script src="templatemo-electric-scripts.js"></script>
+    <script>
+        // Reading Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.pageYOffset / (document.body.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // Smooth scrolling for table of contents
+        document.querySelectorAll('.toc a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Hide/show table of contents on mobile
+        if (window.innerWidth <= 1200) {
+            const toc = document.getElementById('tableOfContents');
+            if (toc) toc.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
 </body>
 </html>
