@@ -2,45 +2,71 @@
 
 /*
 
-TemplateMo 596 Electric                    // Close mobile menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!navbar.contains(e.target) && navLinks.classList.contains('active')) {
-                    menuToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
-                    document.body.classList.remove('menu-open');
-                }
-            });
+TemplateMo 596 Electric Xtra
 
-            // Close mobile menu on window resize
-            window.addEventListener('resize', () => {
-                if (window.innerWidth > 768) {
-                    menuToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
-                    document.body.classList.remove('menu-open');
-                }
+*/
+
+// Enhanced Mobile menu toggle
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navbar = document.getElementById('navbar');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+
+        // Close mobile menu when clicking nav links
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
             });
-            
-            // Set active nav link based on current page and handle navigation
-            document.addEventListener('DOMContentLoaded', () => {
-                const currentLocation = window.location.pathname;
-                const currentHash = window.location.hash;
-                
-                // Mark active navigation link
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    // Remove any existing active classes
-                    link.classList.remove('active');
-                    
-                    // Check if this is the current page
-                    if (currentLocation.includes('events.html') && link.getAttribute('href') === 'events.html') {
-                        link.classList.add('active');
-                    } else if (currentLocation.includes('index_blog.html') && !currentHash && link.getAttribute('href') === 'index_blog.html') {
-                        link.classList.add('active');
-                    } else if (currentHash && link.getAttribute('href') === currentHash) {
-                        link.classList.add('active');
-                    } else if (currentLocation.includes('blog-post') && link.getAttribute('href') === 'index_blog.html') {
-                        link.classList.add('active');
-                    }
-                });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target) && navLinks.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+
+        // Close mobile menu on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+    }
+
+    // Set active nav link based on current page and handle navigation
+    const currentLocation = window.location.pathname;
+    const currentHash = window.location.hash;
+    
+    // Mark active navigation link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        // Remove any existing active classes
+        link.classList.remove('active');
+        
+        // Check if this is the current page
+        if (currentLocation.includes('events.html') && link.getAttribute('href') === 'events.html') {
+            link.classList.add('active');
+        } else if (currentLocation.includes('index_blog.html') && !currentHash && link.getAttribute('href') === 'index_blog.html') {
+            link.classList.add('active');
+        } else if (currentHash && link.getAttribute('href') === currentHash) {
+            link.classList.add('active');
+        } else if (currentLocation.includes('blog-post') && link.getAttribute('href') === 'index_blog.html') {
+            link.classList.add('active');
+        }
+    });
                 
                 // Add click handlers to ensure navigation works properly
                 document.querySelectorAll('.nav-links a').forEach(link => {
@@ -80,13 +106,22 @@ TemplateMo 596 Electric                    // Close mobile menu when clicking ou
                         }
                     });
                 });
-            });templatemo.com/tm-596-electric-xtra
+                
+                // Initialize other site functionality
+                initializeSite();
+            });
 
-*/
+        // Initialize site functionality
+        function initializeSite() {
+            createParticles();
+            // Text rotation is handled separately in the existing code below
+        }
 
-// Create floating particles
+        // Create floating particles
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
+            if (!particlesContainer) return;
+            
             const particleCount = 30;
 
             for (let i = 0; i < particleCount; i++) {
