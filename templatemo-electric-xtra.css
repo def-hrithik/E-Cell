@@ -1036,39 +1036,83 @@ nav.scrolled {
     margin-top: 40px;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 94, 0, 0.2);
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 15px;
+    padding: 10px;
     backdrop-filter: blur(10px);
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 10px 30px rgba(255, 94, 0, 0.1);
 }
 
-.map-placeholder {
-    text-align: center;
-    opacity: 0.6;
+.map-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
 }
 
-.map-overlay {
+.map-responsive iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, transparent 40%, rgba(255, 94, 0, 0.1) 50%, transparent 60%);
-    animation: scan 3s linear infinite;
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
-@keyframes scan {
-    0% {
-        transform: translateX(-100%);
-    }
+.map-container:hover {
+    border-color: rgba(255, 94, 0, 0.4);
+    box-shadow: 0 15px 40px rgba(255, 94, 0, 0.2);
+    transform: translateY(-2px);
+}
 
-    100% {
-        transform: translateX(100%);
+.map-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #FF5E00, #00B2FF, #FF5E00);
+    border-radius: 15px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.map-container:hover::before {
+    opacity: 0.3;
+}
+
+/* Responsive Map Styles */
+@media (max-width: 768px) {
+    .map-container {
+        margin-top: 30px;
+        padding: 8px;
+    }
+    
+    .map-responsive {
+        padding-bottom: 60%; /* Adjust aspect ratio for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .map-container {
+        margin-top: 25px;
+        padding: 6px;
+        border-radius: 10px;
+    }
+    
+    .map-responsive {
+        padding-bottom: 65%; /* Further adjust for small screens */
+        border-radius: 8px;
+    }
+    
+    .map-responsive iframe {
+        border-radius: 8px;
     }
 }
 
