@@ -2,9 +2,85 @@
 
 /*
 
-TemplateMo 596 Electric Xtra
+TemplateMo 596 Electric                    // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navbar.contains(e.target) && navLinks.classList.contains('active')) {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                }
+            });
 
-https://templatemo.com/tm-596-electric-xtra
+            // Close mobile menu on window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                }
+            });
+            
+            // Set active nav link based on current page and handle navigation
+            document.addEventListener('DOMContentLoaded', () => {
+                const currentLocation = window.location.pathname;
+                const currentHash = window.location.hash;
+                
+                // Mark active navigation link
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    // Remove any existing active classes
+                    link.classList.remove('active');
+                    
+                    // Check if this is the current page
+                    if (currentLocation.includes('events.html') && link.getAttribute('href') === 'events.html') {
+                        link.classList.add('active');
+                    } else if (currentLocation.includes('index_blog.html') && !currentHash && link.getAttribute('href') === 'index_blog.html') {
+                        link.classList.add('active');
+                    } else if (currentHash && link.getAttribute('href') === currentHash) {
+                        link.classList.add('active');
+                    } else if (currentLocation.includes('blog-post') && link.getAttribute('href') === 'index_blog.html') {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Add click handlers to ensure navigation works properly
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        // If on mobile, close the menu after clicking
+                        if (window.innerWidth <= 768) {
+                            const navLinks = document.querySelector('.nav-links');
+                            const menuToggle = document.querySelector('.menu-toggle');
+                            if (navLinks && menuToggle) {
+                                menuToggle.classList.remove('active');
+                                navLinks.classList.remove('active');
+                                document.body.classList.remove('menu-open');
+                            }
+                        }
+                        
+                        // Smooth scrolling for anchor links on same page
+                        const href = link.getAttribute('href');
+                        if (href && href.startsWith('#') && document.querySelector(href)) {
+                            e.preventDefault();
+                            const targetElement = document.querySelector(href);
+                            const navHeight = document.querySelector('nav').offsetHeight;
+                            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                            
+                            window.scrollTo({
+                                top: targetPosition - navHeight - 20,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Update URL without page reload
+                            window.history.pushState(null, null, href);
+                            
+                            // Update active states
+                            document.querySelectorAll('.nav-links a').forEach(navLink => {
+                                navLink.classList.remove('active');
+                            });
+                            link.classList.add('active');
+                        }
+                    });
+                });
+            });templatemo.com/tm-596-electric-xtra
 
 */
 
