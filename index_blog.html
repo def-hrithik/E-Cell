@@ -1,16 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECELL MGMCET</title>
+    <title>Blog - ECELL MGMCET</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;700&display=swap"
         rel="stylesheet">
     <link href="templatemo-electric-xtra.css" rel="stylesheet">
-    </head>
+
+    <!-- Custom styles for the blog list and sidebar layout -->
+    <style>
+        .blog {
+            padding: 150px 20px 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 5;
+        }
+
+        .blog-container {
+            /* Defines the main content (2/3) and sidebar (1/3) layout */
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Post list layout within the 2/3 column */
+        .blog-posts {
+            display: grid;
+            gap: 40px;
+        }
+
+        /* Individual post card styling */
+        .blog-post {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            animation: fade-in-up 0.8s ease-out;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+            /* Reduced hover effect for listing */
+            box-shadow: 0 15px 40px rgba(255, 94, 0, 0.3);
+            border-color: rgba(255, 94, 0, 0.3);
+        }
+
+        .blog-image {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .blog-post:hover .blog-image img {
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .blog-sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
 
 <body>
+    <!-- Background Elements -->
     <div class="grid-bg"></div>
     <div class="gradient-overlay"></div>
     <div class="scanlines"></div>
@@ -23,9 +98,10 @@
 
     <div id="particles"></div>
 
+    <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo-link">
+            <a href="index.html" class="logo-link">
                 <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -41,13 +117,15 @@
                 <span class="logo-text">ECELL MGMCET</span>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#features" class="nav-link">About Us</a></li>
-                <li><a href="#about" class="nav-link">Team Revel</a></li>
-                <li><a href="#faculty" class="nav-link">Faculty Advisor</a></li>
+                <!-- Links point to Homepage sections -->
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#features" class="nav-link">About Us</a></li>
+                <li><a href="index.html#about" class="nav-link">Team Revel</a></li>
+                <li><a href="index.html#faculty" class="nav-link">Faculty Advisor</a></li>
                 <li><a href="events.html" class="nav-link">Events</a></li>
-                <li><a href="#blog" class="nav-link">Blog</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <!-- Current Page: blog.html (Active) -->
+                <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
@@ -57,573 +135,7 @@
         </div>
     </nav>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="text-rotator">
-                <div class="text-set active">
-                    <h1 class="glitch-text" data-text="Ideate. Innovate. Incubate.">Ideate. Innovate.</h1>
-                    <h1 class="glitch-text" data-text="Entrepreneurship Cell">Entrepreneurship Cell</h1>
-                    <h1 class="glitch-text" data-text="MGM CET">MGM CET</h1>
-                    <p class="subtitle">Powering Entrepreneurship</p>
-                </div>
-
-            </div>
-        </div>
-        <div class="cta-container">
-            <a href="#features" class="cta-button cta-primary">Get Started</a>
-            <a href="#about" class="cta-button cta-secondary">Learn More</a>
-        </div>
-    </section>
-
-    <section class="features" id="features">
-        <div class="features-container">
-            <div class="feature-tabs">
-                <div class="tab-item active" data-tab="performance">
-                    <span class="tab-icon"></span>
-                    <span>Introduction </span>
-                </div>
-                <div class="tab-item" data-tab="security">
-                    <span class="tab-icon"></span>
-                    <span>What We Do.</span>
-                </div>
-                <div class="tab-item" data-tab="network">
-                    <span class="tab-icon"></span>
-                    <span>Objective</span>
-                </div>
-
-            </div>
-            <div class="feature-content">
-                <div class="content-panel active" id="performance">
-                    <p style="text-align: justify;">E-Cell, MGMCET is dedicated to fostering an entrepreneurial spirit
-                        among students and cultivating their creativity and innovation. We believe that every great idea
-                        begins with a spark, and our mission is to nurture that spark into a transformative venture. By
-                        providing mentorship, networking opportunities, access to incubators, and guidance from industry
-                        experts, we aim to bridge the gap between conceptual ideas and real-world implementation.
-
-                        <br>We organize workshops, competitions, and interactive sessions that expose students to the
-                        entrepreneurial ecosystem, helping them understand business planning, market research, and
-                        funding strategies. Our goal is to create a thriving culture of innovation where students are
-                        empowered to take calculated risks, explore new technologies, and convert their ideas into
-                        impactful startups that can contribute meaningfully to society.
-
-                        <br>At MGMCET E-Cell, we don窶冲 just teach entrepreneurship窶背e live it, and we inspire students
-                        to do the same, preparing them to become the next generation of innovators, leaders, and
-                        changemakers.
-                    </p justify="align">
-                </div>
-                <div class="content-panel" id="security">
-                    <p>E-Cell, MGMCET, organizes a wide range of events throughout the year to promote entrepreneurship
-                        within and beyond the campus. Our flagship event, the E-Summit, brings together students,
-                        innovators, and industry leaders from across India, creating a platform for networking and idea
-                        exchange. Initiatives like TEDx and StartUp Master Classes take learning beyond classrooms,
-                        inspiring students with real-world insights.
-
-                        <br>We also host lectures, workshops, and mentoring sessions aimed at nurturing budding
-                        entrepreneurs. Programs like the StartUp Internship Programme provide students with hands-on
-                        experience in startups, allowing them to understand operations, challenges, and growth
-                        strategies in depth. Through these activities, MGMCET E-Cell empowers students to transform
-                        innovative ideas into successful ventures.
-                    </p>
-                </div>
-                <div class="content-panel" id="network">
-                    <ul class="feature-list">
-                        <li>Identify and reward innovations and share success stories.</li>
-                        <li>Organize periodic workshops/seminars/ interactions with entrepreneurs, investors,
-                            professionals and create a mentor pool for student innovators.</li>
-                        <li>Network with peers and national entrepreneurship development organizations.</li>
-                        <li>Create an Institution's Innovation portal to highlight innovative projects carried out by
-                            institution's faculty and students.</li>
-                        <li>Organize Hackathons, idea competition, mini-challenges etc. with the Involvement of
-                            industries</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="about" id="about">
-        <h2 class="section-title">Team Revel</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p style="text-align: justify;">
-                    Team Revel is the heart of MGMCET E-Cell, dedicated to fostering entrepreneurship, innovation, and
-                    creativity among students. We are a group of passionate, driven individuals who believe in turning
-                    ideas into impactful solutions. Through our initiatives, we aim to create an ecosystem where
-                    aspiring entrepreneurs can learn, experiment, and succeed.
-
-                    <br>From organizing E-Summits, TEDx events, and startup workshops to mentoring budding startups, we
-                    ensure every student has the guidance and resources they need to bring their vision to life. Our
-                    team collaborates with industry experts, alumni, and successful entrepreneurs to provide real-world
-                    insights and opportunities to our campus community.
-
-                    <br>At Team Revel, we believe that innovation thrives in a collaborative environment. We encourage
-                    students to think beyond boundaries, challenge the status quo, and embrace a mindset of
-                    problem-solving. Every project we undertake, every event we organize, and every workshop we conduct
-                    is aimed at empowering young minds to step confidently into the world of entrepreneurship.
-                </p>
-            </div>
-            <div class="about-visual">
-                <img src="1.jpg" alt="Team Revel Photo"
-                    style="width:100%; border-radius: 10px; box-shadow: 0 0 30px rgba(255, 94, 0, 0.4);">
-            </div>
-        </div>
-
-        <div class="team-sections-container">
-            <!-- Executive Team Section -->
-            <div class="team-section">
-                <div class="team-intro">
-                    <div class="team-info">
-                        <h3 class="team-title">Executive Team</h3>
-                        <p class="team-description">
-                            The visionary leaders who drive our mission forward. Our executive team combines strategic thinking 
-                            with entrepreneurial passion, providing direction and guidance to all E-Cell initiatives. They work 
-                            closely with industry mentors and institutional leadership to ensure our programs align with current 
-                            market trends and student needs.
-                        </p>
-                        <div class="team-highlights">
-                            <div class="highlight-item">
-                                <span class="highlight-icon">🎯</span>
-                                <span>Strategic Planning & Vision</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">🤝</span>
-                                <span>Industry Partnerships</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="team-visual">
-                        <img src="https://picsum.photos/400/300?random=10" alt="Executive Team" 
-                             style="width:100%; border-radius: 10px; box-shadow: 0 0 30px rgba(255, 94, 0, 0.4);">
-                    </div>
-                </div>
-                <div class="team-grid">
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=1" alt="Executive Member 1">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">President</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=15" alt="Executive Member 2">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Vice President</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=16" alt="Executive Member 3">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Secretary</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Technical Team Section -->
-            <div class="team-section">
-                <div class="team-intro">
-                    <div class="team-info">
-                        <h3 class="team-title">Technical Team</h3>
-                        <p class="team-description">
-                            The innovative minds behind our digital presence and tech solutions. Our technical team develops 
-                            cutting-edge platforms, manages our digital infrastructure, and creates tools that empower 
-                            entrepreneurs. They bridge the gap between technology and entrepreneurship, ensuring our community 
-                            stays ahead in the digital age.
-                        </p>
-                        <div class="team-highlights">
-                            <div class="highlight-item">
-                                <span class="highlight-icon">💻</span>
-                                <span>Full-Stack Development</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">🚀</span>
-                                <span>Innovation & Automation</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="team-visual">
-                        <img src="https://picsum.photos/400/300?random=11" alt="Technical Team" 
-                             style="width:100%; border-radius: 10px; box-shadow: 0 0 30px rgba(0, 178, 255, 0.4);">
-                    </div>
-                </div>
-                <div class="team-grid">
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=2" alt="Technical Member 1">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Full Stack Developer</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=3" alt="Technical Member 2">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Web Developer</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=17" alt="Technical Member 3">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">App Developer</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=18" alt="Technical Member 4">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">UI/UX Designer</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Events Team Section -->
-            <div class="team-section">
-                <div class="team-intro">
-                    <div class="team-info">
-                        <h3 class="team-title">Events Team</h3>
-                        <p class="team-description">
-                            The creative orchestrators of memorable experiences. Our events team conceptualizes and executes 
-                            workshops, seminars, competitions, and networking sessions that bring the entrepreneurial community 
-                            together. They ensure every event is not just informative but also inspiring and engaging.
-                        </p>
-                        <div class="team-highlights">
-                            <div class="highlight-item">
-                                <span class="highlight-icon">🎉</span>
-                                <span>Event Management</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">🎨</span>
-                                <span>Creative Conceptualization</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="team-visual">
-                        <img src="https://picsum.photos/400/300?random=12" alt="Events Team" 
-                             style="width:100%; border-radius: 10px; box-shadow: 0 0 30px rgba(255, 94, 0, 0.4);">
-                    </div>
-                </div>
-                <div class="team-grid">
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=4" alt="Events Member 1">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Event Coordinator</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=5" alt="Events Member 2">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Event Manager</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=30" alt="Events Member 3">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Workshop Coordinator</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=31" alt="Events Member 4">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Logistics Head</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Social Media Team Section -->
-            <div class="team-section">
-                <div class="team-intro">
-                    <div class="team-info">
-                        <h3 class="team-title">Social Media Team</h3>
-                        <p class="team-description">
-                            The storytellers who amplify our voice across digital platforms. Our social media team crafts 
-                            compelling narratives, manages our online presence, and ensures our message reaches aspiring 
-                            entrepreneurs everywhere. They create engaging content that educates, inspires, and builds community.
-                        </p>
-                        <div class="team-highlights">
-                            <div class="highlight-item">
-                                <span class="highlight-icon">📱</span>
-                                <span>Digital Storytelling</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">📊</span>
-                                <span>Community Engagement</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="team-visual">
-                        <img src="https://picsum.photos/400/300?random=13" alt="Social Media Team" 
-                             style="width:100%; border-radius: 10px; box-shadow: 0 0 30px rgba(0, 178, 255, 0.4);">
-                    </div>
-                </div>
-                <div class="team-grid">
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=6" alt="Social Media Member 1">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Content Creator</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=19" alt="Social Media Member 2">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Social Media Manager</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=20" alt="Social Media Member 3">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Graphic Designer</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=21" alt="Social Media Member 4">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Video Editor</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=22" alt="Social Media Member 5">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Community Manager</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=23" alt="Social Media Member 6">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Photography Lead</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=24" alt="Social Media Member 7">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Copywriter</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=25" alt="Social Media Member 8">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Influencer Relations</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Marketing Team Section -->
-            <div class="team-section">
-                <div class="team-intro">
-                    <div class="team-info">
-                        <h3 class="team-title">Marketing Team</h3>
-                        <p class="team-description">
-                            The strategic communicators who expand our reach and impact. Our marketing team develops 
-                            comprehensive campaigns, builds brand awareness, and creates meaningful connections between 
-                            E-Cell and the broader entrepreneurial ecosystem. They ensure our initiatives reach those who 
-                            need them most.
-                        </p>
-                        <div class="team-highlights">
-                            <div class="highlight-item">
-                                <span class="highlight-icon">📢</span>
-                                <span>Brand Strategy</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">🎯</span>
-                                <span>Outreach & Partnerships</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="team-visual">
-                        <img src="https://picsum.photos/400/300?random=14" alt="Marketing Team" 
-                             style="width:100%; border-radius: 10px; box-shadow: 0 0 30px rgba(255, 94, 0, 0.4);">
-                    </div>
-                </div>
-                <div class="team-grid">
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=7" alt="Marketing Member 1">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Marketing Head</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=26" alt="Marketing Member 2">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Brand Manager</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=27" alt="Marketing Member 3">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Partnership Lead</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=28" alt="Marketing Member 4">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Outreach Coordinator</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=29" alt="Marketing Member 5">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">PR Specialist</p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <div class="member-photo-container">
-                            <img src="https://picsum.photos/200/200?random=32" alt="Marketing Member 6">
-                        </div>
-                        <div class="member-details">
-                            <h4 class="member-name">Member Name</h4>
-                            <p class="member-role">Digital Marketing Specialist</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="faculty" id="faculty">
-        <h2 class="section-title">Faculty Advisor</h2>
-        <div class="faculty-container">
-            <div class="faculty-intro">
-                <div class="faculty-info">
-                    <h3 class="faculty-title">Our Guiding Light</h3>
-                    <p class="faculty-description">
-                        Our Faculty Advisor serves as the cornerstone of E-Cell MGMCET, providing invaluable guidance, 
-                        mentorship, and academic support to our entrepreneurial initiatives. With extensive experience 
-                        in both academia and industry, our advisor bridges the gap between theoretical knowledge and 
-                        practical application, ensuring our activities align with institutional goals while fostering 
-                        real-world entrepreneurial skills.
-                    </p>
-                    <div class="faculty-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🎓</span>
-                            <span>Academic Excellence & Research</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">💼</span>
-                            <span>Industry Experience & Mentorship</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🌟</span>
-                            <span>Strategic Vision & Leadership</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="faculty-visual">
-                    <img src="https://picsum.photos/450/350?random=35" alt="Faculty Advisor" 
-                         style="width:100%; border-radius: 10px; box-shadow: 0 0 30px rgba(255, 94, 0, 0.4);">
-                </div>
-            </div>
-            
-            <div class="faculty-profile">
-                <div class="faculty-member-card">
-                    <div class="faculty-photo-container">
-                        <img src="https://picsum.photos/250/250?random=36" alt="Faculty Advisor Profile">
-                    </div>
-                    <div class="faculty-details">
-                        <h4 class="faculty-name">Dr. Faculty Name</h4>
-                        <p class="faculty-designation">Professor & Head of Department</p>
-                        <p class="faculty-department">Department of Computer Engineering</p>
-                        <div class="faculty-qualifications">
-                            <h5>Qualifications:</h5>
-                            <ul>
-                                <li>Ph.D. in Computer Science & Engineering</li>
-                                <li>M.Tech in Information Technology</li>
-                                <li>B.E. in Computer Engineering</li>
-                            </ul>
-                        </div>
-                        <div class="faculty-expertise">
-                            <h5>Areas of Expertise:</h5>
-                            <div class="expertise-tags">
-                                <span class="expertise-tag">Entrepreneurship</span>
-                                <span class="expertise-tag">Innovation Management</span>
-                                <span class="expertise-tag">Technology Startups</span>
-                                <span class="expertise-tag">Research & Development</span>
-                            </div>
-                        </div>
-                        <div class="faculty-achievements">
-                            <h5>Key Achievements:</h5>
-                            <ul>
-                                <li>15+ years of academic and industry experience</li>
-                                <li>Published 50+ research papers in international journals</li>
-                                <li>Mentor to 100+ successful student projects</li>
-                                <li>Industry consultant for multiple tech companies</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- Blog Content Section -->
     <section class="blog" id="blog">
         <h2 class="section-title">Latest Blog Posts</h2>
         <div class="blog-container">
@@ -639,7 +151,9 @@
                         <div class="blog-category">Entrepreneurship</div>
                         <h3 class="blog-title">10 Essential Tips for Young Entrepreneurs</h3>
                         <p class="blog-excerpt">
-                            Discover the key strategies that successful entrepreneurs use to build thriving businesses from scratch. Learn about market research, funding, and scaling your startup.
+                            Discover the key strategies that successful entrepreneurs use to build thriving businesses
+                            from
+                            scratch. Learn about market research, funding, and scaling your startup.
                         </p>
                         <div class="blog-meta">
                             <span class="blog-author">By Team ECELL</span>
@@ -659,7 +173,9 @@
                         <div class="blog-category">Funding</div>
                         <h3 class="blog-title">Complete Guide to Startup Funding Options</h3>
                         <p class="blog-excerpt">
-                            Explore various funding options available for startups including angel investors, venture capital, crowdfunding, and government schemes.
+                            Explore various funding options available for startups including angel investors, venture
+                            capital,
+                            crowdfunding, and government schemes.
                         </p>
                         <div class="blog-meta">
                             <span class="blog-author">By Team ECELL</span>
@@ -679,7 +195,9 @@
                         <div class="blog-category">Innovation</div>
                         <h3 class="blog-title">Innovation in the Digital Age: What's Next?</h3>
                         <p class="blog-excerpt">
-                            Understand how emerging technologies like AI, blockchain, and IoT are reshaping industries and creating new opportunities for entrepreneurs.
+                            Understand how emerging technologies like AI, blockchain, and IoT are reshaping industries
+                            and
+                            creating new opportunities for entrepreneurs.
                         </p>
                         <div class="blog-meta">
                             <span class="blog-author">By Team ECELL</span>
@@ -737,68 +255,7 @@
         </div>
     </section>
 
-    <section class="contact" id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-container">
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
-            <div class="contact-info">
-                <h3>Connect With Us</h3>
-                <div class="info-item">
-                    <div class="info-icon">📧</div>
-                    <div class="info-details">
-                        <h4>Email</h4>
-                        <p>contact@ecellmgmcet.tech</p>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <div class="info-icon">📱</div>
-                    <div class="info-details">
-                        <h4>Phone</h4>
-                        <p>+91 12345 67890</p>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <div class="info-icon">📍</div>
-                    <div class="info-details">
-                        <h4>Location</h4>
-                        <p>MGM CET, Navi Mumbai</p>
-                    </div>
-                </div>
-                <div class="map-container">
-                    <div class="map-responsive">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.07566330629!2d73.10207751012686!3d19.016387282101622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7e9cc90bd80b7%3A0xdf4fc9424f9d7f73!2sMahatma%20Gandhi%20Mission&#39;s%20College%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1758911337054!5m2!1sen!2sin" 
-                                style="border:0;" 
-                                allowfullscreen="" 
-                                loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade"
-                                title="MGM College of Engineering and Technology Location">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-links">
@@ -806,7 +263,7 @@
                 <a href="#terms">Terms of Service</a>
                 <a href="#careers">Careers</a>
             </div>
-            <p class="copyright">© 2025 ECELL MGMCET. All rights reserved. Building tomorrow, today. | Design: <a
+            <p class="copyright">© 2025 ELECTRIC XTRA. All rights reserved. Building tomorrow, today. | Design: <a
                     href="https://templatemo.com" target="_blank" rel="nofollow noopener">TemplateMo</a></p>
         </div>
     </footer>
