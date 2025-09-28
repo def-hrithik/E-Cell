@@ -9,6 +9,55 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;700&display=swap"
         rel="stylesheet">
     <link href="templatemo-electric-xtra.css" rel="stylesheet">
+    <style>
+        /* Styles for the expandable event card */
+        .event-card-full-body .event-details-more {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.3s ease-out, margin-bottom 0.5s ease-out;
+            opacity: 0;
+            margin-bottom: 0;
+            line-height: 1.8;
+        }
+
+        .event-card-full.expanded .event-details-more {
+            max-height: 500px;
+            /* Adjust if more content is needed */
+            opacity: 0.8;
+            margin-bottom: 25px;
+        }
+
+        .event-card-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        /* Using a class for the new button to avoid affecting other buttons */
+        .event-button-secondary {
+            display: inline-block;
+            text-decoration: none;
+            color: #00B2FF;
+            border: 1px solid #00B2FF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background: transparent;
+            cursor: pointer;
+            font-family: 'Orbitron', monospace;
+            /* Match existing button font */
+        }
+
+        .event-button-secondary:hover {
+            background: rgba(0, 178, 255, 0.1);
+            color: white;
+            box-shadow: 0 0 20px rgba(0, 178, 255, 0.4);
+        }
+    </style>
 </head>
 
 <body>
@@ -47,7 +96,7 @@
                 <li><a href="index.html#about" class="nav-link">Team Revel</a></li>
                 <li><a href="index.html#faculty" class="nav-link">Faculty Advisor</a></li>
                 <li><a href="events.html" class="nav-link active">Events</a></li>
-                <li><a href="index.html#blog" class="nav-link">Blog</a></li>
+                <li><a href="blogs.html" class="nav-link">Blog</a></li>
                 <li><a href="index.html#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
@@ -74,12 +123,18 @@
                     <h4 class="event-title">E-Summit 2025</h4>
                 </div>
                 <div class="event-card-full-body">
-                    <p>Our flagship event bringing together innovators, investors, and students for a two-day
-                        extravaganza of talks, workshops, and competitions. E-Summit 2025 aims to foster a culture of
-                        innovation and provide a platform for budding entrepreneurs to showcase their ideas, network
-                        with industry leaders, and gain valuable insights. The event will feature keynote speeches,
-                        panel discussions, a startup pitching competition, and hands-on workshops.</p>
-                    <a href="#" class="event-button">Register Now</a>
+                    <p class="event-details-brief">Our flagship event bringing together innovators, investors, and
+                        students for a two-day extravaganza of talks, workshops, and competitions.</p>
+                    <div class="event-details-more">
+                        <p>E-Summit 2025 aims to foster a culture of innovation and provide a platform for budding
+                            entrepreneurs to showcase their ideas, network with industry leaders, and gain valuable
+                            insights. The event will feature keynote speeches, panel discussions, a startup pitching
+                            competition, and hands-on workshops.</p>
+                    </div>
+                    <div class="event-card-actions">
+                        <a href="#" class="event-button">Register Now</a>
+                        <button class="event-button-secondary know-more-btn">Know More</button>
+                    </div>
                 </div>
             </div>
 
@@ -96,12 +151,18 @@
                     <h4 class="event-title">Startup Masterclass: The Art of Pitching</h4>
                 </div>
                 <div class="event-card-full-body">
-                    <p>An intensive workshop with industry experts on how to craft and deliver a pitch that wins over
-                        investors. This masterclass will cover everything from structuring your pitch deck to
-                        storytelling and presentation skills. Participants will have the opportunity to practice their
-                        pitch and receive personalized feedback from seasoned entrepreneurs and venture capitalists.
-                        Limited seats available.</p>
-                    <a href="#" class="event-button">Reserve Your Spot</a>
+                    <p class="event-details-brief">An intensive workshop with industry experts on how to craft and
+                        deliver a pitch that wins over investors.</p>
+                    <div class="event-details-more">
+                        <p>This masterclass will cover everything from structuring your pitch deck to storytelling and
+                            presentation skills. Participants will have the opportunity to practice their pitch and
+                            receive personalized feedback from seasoned entrepreneurs and venture capitalists. Limited
+                            seats available.</p>
+                    </div>
+                    <div class="event-card-actions">
+                        <a href="#" class="event-button">Reserve Your Spot</a>
+                        <button class="event-button-secondary know-more-btn">Know More</button>
+                    </div>
                 </div>
             </div>
 
@@ -124,7 +185,9 @@
                         event saw over 100 participants from various colleges, working tirelessly to create projects in
                         domains like AI, Blockchain, and Sustainable Tech. The winning team developed an AI-powered
                         platform to reduce food waste in supply chains.</p>
-                    <a href="#" class="event-button disabled">View Gallery</a>
+                    <div class="event-card-actions">
+                        <a href="hackathon.html" class="event-button">View Gallery</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -143,6 +206,26 @@
         </div>
     </footer>
     <script src="templatemo-electric-scripts.js"></script>
+    <script>
+        // This script handles the "Know More" button functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const knowMoreButtons = document.querySelectorAll('.know-more-btn');
+            knowMoreButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const card = button.closest('.event-card-full');
+                    if (card) {
+                        card.classList.toggle('expanded');
+                        if (card.classList.contains('expanded')) {
+                            button.textContent = 'Show Less';
+                        } else {
+                            button.textContent = 'Know More';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

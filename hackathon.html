@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery: Innovator's Challenge Hackathon - ECELL MGMCET</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link href="templatemo-electric-xtra.css" rel="stylesheet">
+    <style>
+        .gallery-page {
+            padding: 120px 20px 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .event-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .event-header h1 {
+            font-size: 3rem;
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(45deg, #FF5E00, #00B2FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .event-header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-top: 15px;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 94, 0, 0.4);
+        }
+
+        /* Lightbox Modal Styles */
+        .lightbox-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .lightbox-modal.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .lightbox-close,
+        .lightbox-prev,
+        .lightbox-next {
+            position: absolute;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            user-select: none;
+            transition: color 0.2s;
+        }
+
+        .lightbox-close {
+            top: 15px;
+            right: 25px;
+        }
+
+        .lightbox-prev,
+        .lightbox-next {
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+
+        .lightbox-prev {
+            left: 15px;
+        }
+
+        .lightbox-next {
+            right: 15px;
+        }
+
+        .lightbox-close:hover,
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            color: #FF5E00;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-bg"></div>
+    <div id="particles"></div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-link">
+                <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FF5E00;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00B2FF;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <polygon points="20,2 38,14 38,26 20,38 2,26 2,14" fill="none" stroke="url(#logoGradient)"
+                        stroke-width="2" />
+                    <polygon points="20,8 32,16 32,24 20,32 8,24 8,16" fill="url(#logoGradient)" opacity="0.3" />
+                    <circle cx="20" cy="20" r="3" fill="url(#logoGradient)" />
+                </svg>
+                <span class="logo-text">ECELL MGMCET</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#home" class="nav-link">Home</a></li>
+            <li><a href="index.html#features" class="nav-link">About Us</a></li>
+            <li><a href="index.html#about" class="nav-link">Team Revel</a></li>
+            <li><a href="index.html#faculty" class="nav-link">Faculty Advisor</a></li>
+            <li><a href="events.html" class="nav-link">Events</a></li>
+            <li><a href="blogs.html" class="nav-link">Blog</a></li>
+            <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <section class="gallery-page">
+        <div class="event-header">
+            <h1>Innovator's Challenge Hackathon</h1>
+            <p>August 5th, 2025 - A 24-hour marathon of code, creativity, and collaboration.</p>
+        </div>
+
+        <div class="gallery-container">
+            <div class="gallery-item"><img
+                    src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop"
+                    alt="Hackathon Image 1 - Team collaborating on a project"></div>
+            <div class="gallery-item"><img
+                    src="https://images.unsplash.com/photo-1606761568445-5dd7b549592f?q=80&w=2070&auto=format&fit=crop"
+                    alt="Hackathon Image 2 - Presenting a solution to judges"></div>
+            <div class="gallery-item"><img
+                    src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop"
+                    alt="Hackathon Image 3 - Mentor guiding a team"></div>
+            <div class="gallery-item"><img
+                    src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1974&auto=format&fit=crop"
+                    alt="Hackathon Image 4 - Late-night coding session"></div>
+            <div class="gallery-item"><img
+                    src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?q=80&w=2070&auto=format&fit=crop"
+                    alt="Hackathon Image 5 - Networking between participants"></div>
+            <div class="gallery-item"><img
+                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop"
+                    alt="Hackathon Image 6 - Winners announcement"></div>
+        </div>
+    </section>
+
+    <div class="lightbox-modal" id="lightboxModal">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <span class="lightbox-prev" id="lightboxPrev">&#10094;</span>
+        <div class="lightbox-content">
+            <img src="" id="lightboxImg" alt="Enlarged gallery image">
+        </div>
+        <span class="lightbox-next" id="lightboxNext">&#10095;</span>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">© 2025 ECELL MGMCET. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="templatemo-electric-scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const galleryImages = document.querySelectorAll('.gallery-item img');
+            const modal = document.getElementById('lightboxModal');
+            const modalImg = document.getElementById('lightboxImg');
+            const closeBtn = document.getElementById('lightboxClose');
+            const prevBtn = document.getElementById('lightboxPrev');
+            const nextBtn = document.getElementById('lightboxNext');
+
+            let currentIndex = 0;
+            const images = Array.from(galleryImages).map(img => img.src);
+
+            function showImage(index) {
+                modalImg.src = images[index];
+                currentIndex = index;
+            }
+
+            galleryImages.forEach((img, index) => {
+                img.addEventListener('click', () => {
+                    modal.classList.add('visible');
+                    showImage(index);
+                });
+            });
+
+            closeBtn.addEventListener('click', () => modal.classList.remove('visible'));
+            prevBtn.addEventListener('click', () => {
+                const newIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(newIndex);
+            });
+            nextBtn.addEventListener('click', () => {
+                const newIndex = (currentIndex + 1) % images.length;
+                showImage(newIndex);
+            });
+
+            // Close modal on outside click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('visible');
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (modal.classList.contains('visible')) {
+                    if (e.key === 'ArrowLeft') {
+                        prevBtn.click();
+                    } else if (e.key === 'ArrowRight') {
+                        nextBtn.click();
+                    } else if (e.key === 'Escape') {
+                        closeBtn.click();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
