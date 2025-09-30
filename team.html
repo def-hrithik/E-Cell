@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team - ECELL MGMCET</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link href="templatemo-electric-xtra.css" rel="stylesheet">
+    <style>
+        /* Styles for Team Filtering */
+        .team-filter-container {
+            text-align: center;
+            margin-bottom: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 94, 0, 0.4);
+            color: #ffffff;
+            padding: 10px 25px;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 94, 0, 0.2);
+            box-shadow: 0 0 15px rgba(255, 94, 0, 0.5);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(45deg, #FF5E00, #e65500);
+            border-color: #FF5E00;
+            box-shadow: 0 0 20px rgba(255, 94, 0, 0.6);
+            transform: scale(1.05);
+        }
+
+        .team-page-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            padding: 0 20px;
+        }
+
+        .team-member-item {
+            opacity: 1;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .team-member-item.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            display: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .team-filter-container {
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                padding: 8px 20px;
+                font-size: 0.8rem;
+            }
+            
+            .team-page-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-page-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Backgrounds and Particles -->
+    <div class="grid-bg"></div>
+    <div class="gradient-overlay"></div>
+    <div class="scanlines"></div>
+    <div class="shapes-container">
+        <div class="shape shape-circle"></div>
+        <div class="shape shape-triangle"></div>
+        <div class="shape shape-square"></div>
+    </div>
+    <div id="particles"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-link">
+                <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FF5E00;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00B2FF;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <polygon points="20,2 38,14 38,26 20,38 2,26 2,14" fill="none" stroke="url(#logoGradient)"
+                        stroke-width="2" />
+                    <polygon points="20,8 32,16 32,24 20,32 8,24 8,16" fill="url(#logoGradient)" opacity="0.3" />
+                    <circle cx="20" cy="20" r="3" fill="url(#logoGradient)" />
+                </svg>
+                <span class="logo-text">ECELL MGMCET</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#features" class="nav-link">About Us</a></li>
+                <li><a href="team.html" class="nav-link active">Team</a></li>
+                <li><a href="index.html#faculty" class="nav-link">Faculty Advisor</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="blogs.html" class="nav-link">Blog</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <!-- Main Team Section -->
+    <section class="team-page" id="team">
+        <h2 class="section-title">Meet The Team</h2>
+
+        <!-- Team Filter Navigation -->
+        <div class="team-filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="executive">Executive Team</button>
+            <button class="filter-btn" data-filter="technical">Technical Team</button>
+            <button class="filter-btn" data-filter="events">Events Team</button>
+            <button class="filter-btn" data-filter="social-media">Social Media Team</button>
+            <button class="filter-btn" data-filter="marketing">Marketing Team</button>
+        </div>
+
+        <!-- Team Members Grid -->
+        <div class="team-page-grid" id="teamGrid">
+            <!-- Executive Team Members -->
+            <div class="team-member-item" data-category="executive">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=101" alt="Executive Member 1" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Arjun Sharma</h4>
+                        <p class="member-role">President</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="executive">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=102" alt="Executive Member 2" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Priya Patel</h4>
+                        <p class="member-role">Vice President</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="executive">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=103" alt="Executive Member 3" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Rohit Gupta</h4>
+                        <p class="member-role">Secretary</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Team Members -->
+            <div class="team-member-item" data-category="technical">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=201" alt="Technical Member 1" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Aarav Singh</h4>
+                        <p class="member-role">Lead Developer</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="technical">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=202" alt="Technical Member 2" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Neha Agarwal</h4>
+                        <p class="member-role">UI/UX Designer</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="technical">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=203" alt="Technical Member 3" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Vikram Joshi</h4>
+                        <p class="member-role">Backend Developer</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="technical">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=204" alt="Technical Member 4" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Ananya Reddy</h4>
+                        <p class="member-role">DevOps Engineer</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Events Team Members -->
+            <div class="team-member-item" data-category="events">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=301" alt="Events Member 1" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Karan Mehta</h4>
+                        <p class="member-role">Events Head</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="events">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=302" alt="Events Member 2" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Shreya Kapoor</h4>
+                        <p class="member-role">Event Coordinator</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="events">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=303" alt="Events Member 3" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Raj Kumar</h4>
+                        <p class="member-role">Workshop Coordinator</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="events">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=304" alt="Events Member 4" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Pooja Sharma</h4>
+                        <p class="member-role">Logistics Head</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="events">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=305" alt="Events Member 5" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Amit Verma</h4>
+                        <p class="member-role">Event Assistant</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media Team Members -->
+            <div class="team-member-item" data-category="social-media">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=401" alt="Social Media Member 1" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Sanya Malhotra</h4>
+                        <p class="member-role">Social Media Head</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="social-media">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=402" alt="Social Media Member 2" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Rahul Jain</h4>
+                        <p class="member-role">Content Creator</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="social-media">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=403" alt="Social Media Member 3" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Kavya Nair</h4>
+                        <p class="member-role">Graphic Designer</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="social-media">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=404" alt="Social Media Member 4" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Arjun Kumar</h4>
+                        <p class="member-role">Video Editor</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="social-media">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=405" alt="Social Media Member 5" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Meera Pandey</h4>
+                        <p class="member-role">Community Manager</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="social-media">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=406" alt="Social Media Member 6" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Dev Shah</h4>
+                        <p class="member-role">Photography Lead</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="social-media">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=407" alt="Social Media Member 7" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Isha Singh</h4>
+                        <p class="member-role">Copywriter</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="social-media">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=408" alt="Social Media Member 8" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Nikhil Rao</h4>
+                        <p class="member-role">Influencer Relations</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="social-media">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=409" alt="Social Media Member 9" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Riya Chopra</h4>
+                        <p class="member-role">Digital Marketing Specialist</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="social-media">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=410" alt="Social Media Member 10" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Varun Bhatt</h4>
+                        <p class="member-role">Social Media Analytics</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marketing Team Members -->
+            <div class="team-member-item" data-category="marketing">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=501" alt="Marketing Member 1" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Aditi Gupta</h4>
+                        <p class="member-role">Marketing Head</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="marketing">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=502" alt="Marketing Member 2" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Harsh Agarwal</h4>
+                        <p class="member-role">Brand Manager</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="marketing">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=503" alt="Marketing Member 3" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Sneha Joshi</h4>
+                        <p class="member-role">Campaign Coordinator</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="marketing">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=504" alt="Marketing Member 4" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Kiran Negi</h4>
+                        <p class="member-role">Partnership Manager</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="marketing">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=505" alt="Marketing Member 5" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Akash Thakur</h4>
+                        <p class="member-role">PR Specialist</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member-item" data-category="marketing">
+                <div class="team-member-card">
+                    <div class="member-photo-container">
+                        <img src="https://picsum.photos/200/200?random=506" alt="Marketing Member 6" class="member-photo">
+                    </div>
+                    <div class="member-details">
+                        <h4 class="member-name">Tanvi Kulkarni</h4>
+                        <p class="member-role">Market Research Analyst</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#careers">Careers</a>
+            </div>
+            <p class="copyright">© 2025 ECELL MGMCET. All rights reserved. Building tomorrow, today.<a
+                    href="https://templatemo.com" target="_blank" rel="nofollow noopener"></a></p>
+        </div>
+    </footer>
+
+    <script src="templatemo-electric-scripts.js"></script>
+    <script>
+        // Team filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const teamMembers = document.querySelectorAll('.team-member-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    // Filter team members
+                    teamMembers.forEach(member => {
+                        if (filter === 'all' || member.getAttribute('data-category') === filter) {
+                            member.classList.remove('hidden');
+                        } else {
+                            member.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
