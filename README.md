@@ -27,35 +27,35 @@ The website is a multi-page, responsive platform that includes:
 
 ---
 
-## 📸 Application Screenshots
+## 📸 Website Screenshots
 
 <h3 align="center">Website Showcase</h3>
 
 <table width="100%">
   <tr>
     <td align="center">
-      <a href="path/to/your/screenshot.jpg"><img src="path/to/your/screenshot.jpg" alt="Home Page" width="600" style="max-width:100%;"></a>
+      <a href="assets\screenshot\home.png"><img src="assets\screenshot\home.png" alt="Home Page" width="600" style="max-width:100%;"></a>
       <br>
       <p><strong>[1. Home Page]</strong></p>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <a href="path/to/your/screenshot.jpg"><img src="path/to/your/screenshot.jpg" alt="Team Page" width="600" style="max-width:100%;"></a>
+      <a href="assets\screenshot\blogs.png"><img src="assets\screenshot\blogs.png" alt="Team Page" width="600" style="max-width:100%;"></a>
       <br>
-      <p><strong>[2. Team Page with Filtering]</strong></p>
+      <p><strong>[2. Blogs Page]</strong></p>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <a href="path/to/your/screenshot.jpg"><img src="path/to/your/screenshot.jpg" alt="Events Page" width="600" style="max-width:100%;"></a>
+      <a href="assets/screenshot/events.png"><img src="assets/screenshot/events.png" alt="Events Page" width="600" style="max-width:100%;"></a>
       <br>
       <p><strong>[3. Events Page]</strong></p>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <a href="path/to/your/screenshot.jpg"><img src="path/to/your/screenshot.jpg" alt="Blog Post" width="600" style="max-width:100%;"></a>
+      <a href="assets\screenshot\blog_page.png"><img src="assets\screenshot\blog_page.png" alt="Blog Post" width="600" style="max-width:100%;"></a>
       <br>
       <p><strong>[4. Blog Post with Table of Contents]</strong></p>
     </td>
@@ -76,8 +76,8 @@ Follow these steps to set up and run the project locally.
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/def-hrithik/E-Cell.git](https://github.com/def-hrithik/E-Cell.git)
-    cd your-repo-name
+    git clone https://github.com/def-hrithik/E-Cell.git
+    cd E-Cell
     ```
 2.  **Run the Website:**
     * Simply open the `index.html` file in your web browser to view the website. No special server or build process is required.
@@ -86,13 +86,8 @@ Follow these steps to set up and run the project locally.
 
 ## 🤝 Contributing
 
-We welcome contributions! Feel free to report bugs, suggest features, or submit pull requests.
+Contributions are not welcome at this time. This project is currently not open for pull requests or feature suggestions.
 
-1.  Fork the Project.
-2.  Create your Feature Branch (`git checkout -b feature/new-feature-name`).
-3.  Commit your Changes (`git commit -m 'feat: Added a new feature'`).
-4.  Push to the Branch (`git push origin feature/new-feature-name`).
-5.  Open a Pull Request.
 
 
 **Project Link:** [https://github.com/def-hrithik/E-Cell.git]
